@@ -1,1 +1,10 @@
-export default function Page(){return <main className="articlePage"><div className="container narrow"><h1>Affiliate Disclosure</h1><p>เว็บไซต์นี้อาจได้รับค่าคอมมิชชันเมื่อผู้อ่านคลิกลิงก์และซื้อสินค้าผ่านแพลตฟอร์มพันธมิตร เช่น Shopee โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับผู้ซื้อ ค่าคอมมิชชันไม่ได้เป็นเงื่อนไขเดียวในการเลือกสินค้าแนะนำ</p></div></main>}
+import { StaticPage } from '@/components/content/StaticPage';
+import { TrustNotice } from '@/components/content/TrustNotice';
+
+export default function Page() {
+  return <StaticPage eyebrow="Affiliate Disclosure" title="ความโปร่งใสต้องมาก่อนการแนะนำ" lead="เราแยกค่าคอมมิชชันออกจากเหตุผลในการเลือกสินค้า และจะแจ้งให้ชัดเมื่อมีลิงก์พันธมิตร">
+    <TrustNotice title="สถานะของเว็บไซต์ปัจจุบัน"><p>บทความตัวอย่างใน MVP ยังไม่มีลิงก์ Affiliate จริง ไม่มีราคา คะแนน หรือยอดขายที่นำมาใช้ประกอบคำแนะนำ</p></TrustNotice>
+    <h2>Affiliate ทำงานอย่างไร</h2><p>ในอนาคตเว็บไซต์อาจได้รับค่าคอมมิชชันเมื่อผู้อ่านคลิกลิงก์และซื้อสินค้าผ่านแพลตฟอร์มพันธมิตร เช่น Shopee โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับผู้ซื้อ</p>
+    <h2>สิ่งที่เรายึดถือ</h2><p>ค่าคอมมิชชันไม่ควรเป็นเงื่อนไขเดียวในการเลือกสินค้า เนื้อหาต้องอธิบายความเหมาะสม ข้อจำกัด และข้อมูลที่ควรตรวจสอบก่อนซื้ออย่างตรงไปตรงมา</p>
+  </StaticPage>;
+}
