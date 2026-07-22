@@ -11,7 +11,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: ArticleProps): Promise<Metadata> {
   const { slug } = await params;
   const article = articles.find((item) => item.slug === slug);
-  return article ? { title: article.title, description: article.excerpt } : {};
+  return article ? { title: article.title, description: article.excerpt, alternates: { canonical: `/article/${slug}` } } : {};
 }
 
 export default async function Article({ params }: ArticleProps) {
