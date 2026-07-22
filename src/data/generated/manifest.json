@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "sourceFile": "data/Shopee_Keyword_Intelligence_Sprint2.xlsx",
+  "sourceFileSha256": "5A9CA7CBE7984CEB0B2AAB4836AAFF6A21A1C88B158B6084117F0828B357AE9B",
+  "sourceSheet": "Sprint 2 - Top 30",
+  "generatedAt": "2026-07-22T03:49:24.096455",
+  "recordCount": 30,
+  "firstRank": 1,
+  "lastRank": 30,
+  "keywordHash": "E6E84277DD6569C34E0EBF74D7A6C19F35F9B9C3004056C823A0F1C8F04B78B5",
+  "contentHash": "E6E84277DD6569C34E0EBF74D7A6C19F35F9B9C3004056C823A0F1C8F04B78B5",
+  "generatorVersion": "1.0.0",
+  "warnings": [
+    "Currency is not present in the source sheet; currency is null for every record.",
+    "Unmapped or review-required workbook categories: ทีวีและเครื่องใช้ไฟฟ้า, บ้านและครัว, อื่น ๆ, แฟชั่นและกระเป๋า"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "ทีวีและเครื่องใช้ไฟฟ้า": {
+    "siteCategorySlug": null,
+    "status": "UNMAPPED",
+    "slugPrefix": "tv-appliances",
+    "notes": "No current MVP category page represents TVs and electrical appliances."
+  },
+  "ไอทีและอุปกรณ์": {
+    "siteCategorySlug": "it",
+    "status": "MAPPED",
+    "slugPrefix": "it",
+    "notes": "Explicitly mapped to the existing IT and gadgets category."
+  },
+  "บ้านและครัว": {
+    "siteCategorySlug": null,
+    "status": "UNMAPPED",
+    "slugPrefix": "home-kitchen",
+    "notes": "No current MVP home and kitchen category page exists."
+  },
+  "มอเตอร์ไซค์และยานยนต์": {
+    "siteCategorySlug": "motorcycle",
+    "status": "MAPPED",
+    "slugPrefix": "motorcycle",
+    "notes": "Explicitly mapped to the existing motorcycle category."
+  },
+  "แฟชั่นและกระเป๋า": {
+    "siteCategorySlug": null,
+    "status": "UNMAPPED",
+    "slugPrefix": "fashion-bags",
+    "notes": "No current MVP fashion category page exists."
+  },
+  "อื่น ๆ": {
+    "siteCategorySlug": null,
+    "status": "REVIEW REQUIRED",
+    "slugPrefix": "other",
+    "notes": "A generic source category must be reviewed before any route mapping."
+  }
+}
