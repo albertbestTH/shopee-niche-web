@@ -1,3 +1,33 @@
-import Link from 'next/link';import {articles,categories} from '@/data/site';import {notFound} from 'next/navigation';
-export function generateStaticParams(){return categories.map(c=>({slug:c.slug}))}
-export default async function Category({params}:{params:Promise<{slug:string}>}){const{slug}=await params;const c=categories.find(x=>x.slug===slug);if(!c)notFound();const list=articles.filter(a=>a.category===slug);return <main className="section container"><span className="eyebrow">{c.icon} หมวดหมู่</span><h1>{c.name}</h1><p className="lead">{c.description}</p><div className="articleGrid categoryArticles">{list.map(a=><article className="articleCard" key={a.slug}><div className="articleVisual">{a.image}</div><div className="articleBody"><small>{a.readTime}</small><h3>{a.title}</h3><p>{a.excerpt}</p><Link href={`/article/${a.slug}`}>อ่านบทความ →</Link></div></article>)}</div></main>}
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { articles, categories } from '@/data/site';
+
+type CategoryProps = { params: Promise<{ slug: string }> };
+
+export function generateStaticParams() {
+  return categories.map((category) => ({ slug: category.slug }));
+}
+
+export async function generateMetadata({ params }: CategoryProps): Promise<Metadata> {
+  const { slug } = await params;
+  const category = categories.find((item) => item.slug === slug);
+  return category ? { title: category.name, description: category.description } : {};
+}
+
+export default async function Category({ params }: CategoryProps) {
+  const { slug } = await params;
+  const category = categories.find((item) => item.slug === slug);
+  if (!category) notFound();
+  const list = articles.filter((article) => article.category === slug);
+
+  return <main className="section container">
+    <span className="eyebrow">{category.icon} หมวดหมู่ • ข้อมูลตัวอย่าง</span>
+    <h1>{category.name}</h1>
+    <p className="lead">{category.description}</p>
+    <div className="articleGrid categoryArticles">{list.map((article) => <article className="articleCard" key={article.slug}>
+      <div className="articleVisual">{article.image}</div>
+      <div className="articleBody"><small>{article.readTime}</small><h3>{article.title}</h3><p>{article.excerpt}</p><Link href={`/article/${article.slug}`}>อ่านตัวอย่าง →</Link></div>
+    </article>)}</div>
+  </main>;
+}
