@@ -66,3 +66,20 @@ When the workbook changes:
 3. Run `npm run data:validate` and `npm run test`.
 4. Review the generated-data diff and manifest source hash.
 5. Resolve any validation or category-mapping warning before consuming new records.
+
+## Design system
+
+The interface uses a modern white, clean, editorial direction designed for Thai Buying Guides. It emphasizes trust, clarity, visible limitations, and sample-content disclosure rather than storefront patterns.
+
+- Tokens: `src/styles/tokens.css`
+- Global styles and responsive rules: `src/app/globals.css`
+- Components: `src/components/ui`, `src/components/layout`, and `src/components/content`
+- Supported review viewports: 1440×900, 1024×768, 768×1024, 390×844, and 360×800
+
+To inspect the UI locally:
+
+```bash
+npm run dev
+```
+
+Then open `http://localhost:3000`. Run `npm run lint`, `npm run test`, and a build with `NEXT_PUBLIC_SITE_URL=http://localhost:3000` before committing. Add or change shared values in `src/styles/tokens.css`; do not scatter one-off color, spacing, typography, radius, or shadow values across page files.
