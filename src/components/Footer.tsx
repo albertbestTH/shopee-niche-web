@@ -1,2 +1,0 @@
-import Link from 'next/link';
-export function Footer(){return <footer><div className="container footerGrid"><div><div className="brand"><span>คัดของดี</span><b>จริง</b></div><p>รีวิวและคู่มือเลือกซื้อแบบตรงไปตรงมา เพื่อช่วยให้คุณตัดสินใจก่อนกดสั่งซื้อ</p></div><div><h4>ข้อมูล</h4><Link href="/about">เกี่ยวกับเรา</Link><Link href="/affiliate-disclosure">Affiliate Disclosure</Link><Link href="/privacy">นโยบายความเป็นส่วนตัว</Link></div></div><div className="container copyright">© 2026 คัดของดีจริง — บางลิงก์อาจเป็น Affiliate Link</div></footer>}
