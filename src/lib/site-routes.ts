@@ -9,3 +9,11 @@ export function getSitePaths(categories: ReadonlyArray<SlugRecord>, articles: Re
     ...articles.map(({ slug }) => `/article/${slug}`),
   ];
 }
+
+export function getRobotsConfig(siteUrl: URL) {
+  return {
+    rules: { userAgent: '*', allow: '/' },
+    sitemap: new URL('/sitemap.xml', siteUrl).toString(),
+    host: siteUrl.origin,
+  };
+}
