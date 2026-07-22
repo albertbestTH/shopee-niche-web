@@ -1,0 +1,5 @@
+import { FileSearch } from 'lucide-react';
+
+export function EmptyState({ title, description }: { title: string; description: string }) {
+  return <div className="empty-state"><FileSearch aria-hidden="true" size={32} /><h2>{title}</h2><p>{description}</p></div>;
+}
