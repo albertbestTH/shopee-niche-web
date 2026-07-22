@@ -144,3 +144,19 @@ Do not begin Keyword Import until these checks are complete.
 ## Verdict
 
 NOT READY
+
+## Phase 1.1 Follow-up
+
+- Review date: 2026-07-22
+- Starting SHA: `9a8336f4c1079e56b85bdc0752f90f777752a20d`
+- Workbook inspection: `PASS WITH WARNINGS`. Six sheets were inspected with openpyxl in read-only/data-only mode. `Sprint 2 - Top 30` has 30 data rows and passed all requested duplicate/blank checks. Hash before and after inspection matched. See `docs/WORKBOOK_INSPECTION.md`.
+- Mobile navigation: implemented as an isolated Client Component with semantic button, `aria-label`, `aria-expanded`, `aria-controls`, focus-on-open, link-close, Escape-close with focus return, keyboard-focus styles, and no desktop navigation behavior change.
+- Technical SEO: environment-driven site origin implemented. Production build fails clearly without `NEXT_PUBLIC_SITE_URL`; development alone falls back to `http://localhost:3000`. Canonical metadata, metadataBase, robots, and sitemap use real route data.
+- Not-found: custom Thai page implemented. Invalid category and article slugs return HTTP 404 without redirecting.
+- Dependency security: `TEMPORARILY ACCEPTED`. npm still reports 1 moderate and 2 high transitive advisories through Next.js. npm offers only an unsafe breaking downgrade through `--force`, which was not applied. See `docs/DEPENDENCY_SECURITY.md`.
+- Browser review: in-app browser backend was unavailable; only an unrelated Chrome extension backend was exposed and was not substituted. Desktop 1440×900 and mobile 390×844 interactive/console/hydration checks therefore remain unverified. Source-level responsive/accessibility review and HTTP-level route verification completed.
+- Production-server review: the environment policy rejected the long-running `npm run start` process before execution. Production build passed; HTTP route checks were completed against the development server and are not represented as production-server verification.
+- Tests: `npm run lint` passed, `npm run test` passed 5/5, `npm run build` passed with `NEXT_PUBLIC_SITE_URL=http://localhost:3000`, and `git diff --check` passed.
+- HTTP results: `/`, `/about`, `/affiliate-disclosure`, `/privacy`, `/category/it`, and `/article/budget-home-camera` returned 200; invalid category/article slugs returned 404; `/robots.txt` and `/sitemap.xml` returned 200; canonical tags used localhost only for validation.
+- Remaining defects/risks: browser-only viewport, interaction, console, hydration, and overflow verification remains unavailable; production-server start verification was blocked by environment policy; transitive dependency advisories remain without a safe compatible fix; workbook sheet name `Content Plan 30 ار¹` has an unusual suffix and should be confirmed before import mapping.
+- Final verdict: `READY WITH MINOR RISKS`
