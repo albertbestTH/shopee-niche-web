@@ -1,0 +1,1 @@
+export default function Page(){return <main className="articlePage"><div className="container narrow"><h1>Affiliate Disclosure</h1><p>เว็บไซต์นี้อาจได้รับค่าคอมมิชชันเมื่อผู้อ่านคลิกลิงก์และซื้อสินค้าผ่านแพลตฟอร์มพันธมิตร เช่น Shopee โดยไม่มีค่าใช้จ่ายเพิ่มสำหรับผู้ซื้อ ค่าคอมมิชชันไม่ได้เป็นเงื่อนไขเดียวในการเลือกสินค้าแนะนำ</p></div></main>}
