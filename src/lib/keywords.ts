@@ -1,5 +1,5 @@
-import keywordData from '@/data/generated/keywords.json';
-import { validateKeywordRecords, type KeywordRecord } from '@/types/keyword';
+import keywordData from '../data/generated/keywords.json' with { type: 'json' };
+import { validateKeywordRecords, type KeywordRecord } from '../types/keyword.ts';
 
 const records = keywordData as KeywordRecord[];
 const validationErrors = validateKeywordRecords(records);
