@@ -5,8 +5,10 @@ import json
 import re
 import sys
 import unicodedata
+from datetime import datetime
 from pathlib import Path
 from typing import Any
+from zipfile import ZipFile
 
 try:
     from openpyxl import load_workbook
@@ -56,6 +58,13 @@ def canonical_hash(value: Any) -> str:
     payload = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
     return hashlib.sha256(payload).hexdigest().upper()
 
+def source_archive_timestamp(path: Path) -> str:
+    with ZipFile(path) as archive:
+        timestamps = [entry.date_time for entry in archive.infolist()]
+    if not timestamps:
+        raise ValueError("Workbook archive contains no entries for deterministic generatedAt")
+    return datetime(*max(timestamps)).isoformat()
+
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
@@ -71,9 +80,7 @@ def main() -> None:
         headers = [normalize_text(cell.value) if cell.value is not None else "" for cell in next(sheet.iter_rows(min_row=1, max_row=1))]
         if headers != EXPECTED_HEADERS:
             raise ValueError(f"Unexpected headers in {SOURCE_SHEET}: {headers}")
-        if workbook.properties.modified is None:
-            raise ValueError("Workbook modified timestamp is required for deterministic generatedAt")
-        generated_at = workbook.properties.modified.isoformat()
+        generated_at = source_archive_timestamp(SOURCE)
         records: list[dict[str, Any]] = []
         repair_count = 0
         for source_row, values in enumerate(sheet.iter_rows(min_row=2, values_only=True), start=2):
